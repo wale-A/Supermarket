@@ -1,6 +1,7 @@
 using AppFramework.AppClasses;
 using AppFramework.AppClasses.EDTs;
 using FirstAppFrameworkApplicationEntities.EDTs;
+using FirstAppFrameworkApplicationEntities.EntityEnums;
 using FirstAppFrameworkApplicationEntities.Forms;
 using System;
 using System.Collections.Generic;
@@ -46,14 +47,17 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
         {
             FieldInfoList["DeductionID"] = new FieldInfo(true, false, true, new MiscChargeEDT());
             FieldInfoList["Description"] = new FieldInfo(true, true, true, new ShortDescriptionEDT());
-            FieldInfoList["DeductionType"] = new FieldInfo(true, true, true, new MiscChargeTypeEDT());
+            FieldInfoList["DeductionType"] = new FieldInfo(true, true, true, "Charge Type", typeof(DeductionType));
             FieldInfoList["Value"] = new FieldInfo(true, true, true, "Value", new AmountEDT());
             FieldInfoList["Default"] = new FieldInfo(true, true, true, "Default", FormDataType.Boolean);
+            FieldInfoList["ChargeOrder"] = new FieldInfo(true, true, true, "Charge Index", FormDataType.Integer);    
+            
             TableInfo.KeyInfoList["DeductionID"] = new KeyInfo(KeyType.PrimaryField, "DeductionID");
         }
 
         protected override long insert(bool forceWrite, bool callSaveMethod)
         {
+            
             //this.DeductionID = AppFramework.AppClasses.AppEntities.NumberSequences.getNumber("DeductionIDSequence");
             
             return base.insert(forceWrite, callSaveMethod);

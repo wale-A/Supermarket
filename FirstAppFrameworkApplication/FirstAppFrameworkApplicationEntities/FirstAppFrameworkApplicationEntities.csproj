@@ -115,9 +115,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EDTs\CustomerEDT.cs" />
-    <Compile Include="EDTs\DeductionOrderEDT.cs" />
+    <Compile Include="EDTs\DiscountEDT.cs" />
     <Compile Include="EDTs\MiscChargeEDT.cs" />
-    <Compile Include="EDTs\MiscChargeTypeEDT.cs" />
     <Compile Include="EDTs\OrderEDT.cs" />
     <Compile Include="EDTs\ItemCategoryEDT.cs" />
     <Compile Include="EDTs\ItemEDT.cs" />
@@ -125,6 +124,7 @@
     <Compile Include="EDTs\PaymentEDT.cs" />
     <Compile Include="EntityClasses\CompanyDetails.cs" />
     <Compile Include="EntityClasses\Customers.cs" />
+    <Compile Include="EntityClasses\Discount.cs" />
     <Compile Include="EntityClasses\MiscCharge.cs" />
     <Compile Include="EntityClasses\OrderMiscCharges.cs" />
     <Compile Include="EntityClasses\OrderDetails.cs" />
@@ -134,7 +134,6 @@
     <Compile Include="EntityClasses\ItemCategory_Properties.cs" />
     <Compile Include="EntityClasses\Items.cs" />
     <Compile Include="EntityClasses\Payment.cs" />
-    <Compile Include="EntityClasses\QueryableEntity_2.cs" />
     <Compile Include="EntityEnums\Enums.cs" />
     <Compile Include="Forms\CompanyDetails.cs">
       <SubType>Form</SubType>
@@ -147,6 +146,12 @@
     </Compile>
     <Compile Include="Forms\Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Discounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Discounts.Designer.cs">
+      <DependentUpon>Discounts.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MiscCharges.cs">
       <SubType>Form</SubType>
@@ -209,6 +214,10 @@
     <Compile Include="EntityClasses\OrderMiscCharges_Properties.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>OrderMiscCharges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\Discount_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Discount.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
