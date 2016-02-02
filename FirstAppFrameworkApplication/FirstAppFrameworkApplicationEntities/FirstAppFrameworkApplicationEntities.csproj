@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EDTs\CustomerEDT.cs" />
+    <Compile Include="EDTs\DeductionOrderEDT.cs" />
     <Compile Include="EDTs\MiscChargeEDT.cs" />
     <Compile Include="EDTs\MiscChargeTypeEDT.cs" />
     <Compile Include="EDTs\OrderEDT.cs" />

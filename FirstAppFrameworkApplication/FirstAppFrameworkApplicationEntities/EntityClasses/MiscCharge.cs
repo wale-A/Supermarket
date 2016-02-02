@@ -48,7 +48,7 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
             FieldInfoList["Description"] = new FieldInfo(true, true, true, new ShortDescriptionEDT());
             FieldInfoList["DeductionType"] = new FieldInfo(true, true, true, new MiscChargeTypeEDT());
             FieldInfoList["Value"] = new FieldInfo(true, true, true, "Value", new AmountEDT());
-
+            FieldInfoList["Default"] = new FieldInfo(true, true, true, "Default", FormDataType.Boolean);
             TableInfo.KeyInfoList["DeductionID"] = new KeyInfo(KeyType.PrimaryField, "DeductionID");
         }
 
