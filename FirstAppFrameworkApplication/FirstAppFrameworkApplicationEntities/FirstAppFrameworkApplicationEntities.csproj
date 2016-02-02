@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C752C9B3-0EBD-4CB4-966C-C977A2862C89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FirstAppFrameworkApplicationEntities</RootNamespace>
+    <AssemblyName>FirstAppFrameworkApplicationEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AppFramework, Version=1.0.0.3, Culture=neutral, PublicKeyToken=07bb7d169cd726a9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AppFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=07bb7d169cd726a9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=07bb7d169cd726a9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EDTs\CustomerEDT.cs" />
+    <Compile Include="EDTs\MiscChargeEDT.cs" />
+    <Compile Include="EDTs\MiscChargeTypeEDT.cs" />
+    <Compile Include="EDTs\OrderEDT.cs" />
+    <Compile Include="EDTs\ItemCategoryEDT.cs" />
+    <Compile Include="EDTs\ItemEDT.cs" />
+    <Compile Include="EDTs\OrderStatusEDT.cs" />
+    <Compile Include="EDTs\PaymentEDT.cs" />
+    <Compile Include="EntityClasses\CompanyDetails.cs" />
+    <Compile Include="EntityClasses\Customers.cs" />
+    <Compile Include="EntityClasses\MiscCharge.cs" />
+    <Compile Include="EntityClasses\OrderMiscCharges.cs" />
+    <Compile Include="EntityClasses\OrderDetails.cs" />
+    <Compile Include="EntityClasses\OrderDetails_Properties.cs" />
+    <Compile Include="EntityClasses\Order.cs" />
+    <Compile Include="EntityClasses\ItemCategory.cs" />
+    <Compile Include="EntityClasses\ItemCategory_Properties.cs" />
+    <Compile Include="EntityClasses\Items.cs" />
+    <Compile Include="EntityClasses\Payment.cs" />
+    <Compile Include="EntityClasses\QueryableEntity_2.cs" />
+    <Compile Include="EntityEnums\Enums.cs" />
+    <Compile Include="Forms\CompanyDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompanyDetails.Designer.cs">
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers.Designer.cs">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MiscCharges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MiscCharges.Designer.cs">
+      <DependentUpon>MiscCharges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderDeductions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderDeductions.Designer.cs">
+      <DependentUpon>OrderDeductions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Items.Designer.cs">
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program_Main.cs" />
+    <Compile Include="ReportClasses\InvoiceReport.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EntityClasses\Customers_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\CompanyDetails_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\Items_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\Payment_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\Order_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\MiscCharge_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MiscCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityClasses\OrderMiscCharges_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OrderMiscCharges.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="Runnables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\CompanyDetails.resx">
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers.resx">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MiscCharges.resx">
+      <DependentUpon>MiscCharges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Reports\InvoiceReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Forms\Items.resx">
+      <DependentUpon>Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\AppFramework.dll" />
+    <Content Include="bin\Debug\AppFramework.pdb" />
+    <Content Include="bin\Debug\AppFrameworkServerService.exe" />
+    <Content Include="bin\Debug\AppFrameworkServerService.pdb" />
+    <Content Include="bin\Debug\AxInterop.AcroPDFLib.dll" />
+    <Content Include="bin\Debug\EntityBaseUpdaterUtility.exe" />
+    <Content Include="bin\Debug\EntityBaseUpdaterUtility.pdb" />
+    <Content Include="bin\Debug\FirstAppFrameworkApplicationEntities.dll" />
+    <Content Include="bin\Debug\FirstAppFrameworkApplicationEntities.pdb" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Debug\Interop.AcroPDFLib.dll" />
+    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="bin\Debug\Microsoft.SqlServer.Types.dll" />
+    <Content Include="bin\Debug\Microsoft.Vbe.Interop.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\NPOI.dll" />
+    <Content Include="bin\Debug\NPOI.OOXML.dll" />
+    <Content Include="bin\Debug\NPOI.OOXML.xml" />
+    <Content Include="bin\Debug\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\Debug\office.dll" />
+    <Content Include="bin\Debug\ProjectFileBackup\FirstAppFrameworkApplicationEntities.csproj27-Jan-16 6.26.33 PM.csproj" />
+    <Content Include="bin\Debug\ProjectFileBackup\FirstAppFrameworkApplicationEntities.csproj28-Jan-16 11.02.44 AM.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\EntityBaseUpdaterUtility.exe.config" />
+    <None Include="bin\Debug\serverconfig.cfg" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.EntityClasses.InvoiceDetails.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.InvoiceReport+InvoiceReportDataLine.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.OrderReport+OrderDetailsReportDataLine.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug "$(TargetDir)EntityBaseUpdaterUtility.exe"  -a "$(TargetPath)" -s "$(ProjectDir)EntityClasses" -p "$(ProjectPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
