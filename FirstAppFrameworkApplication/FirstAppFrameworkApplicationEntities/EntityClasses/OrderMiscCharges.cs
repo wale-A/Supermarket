@@ -2,6 +2,7 @@ using AppFramework.AppClasses;
 using AppFramework.AppClasses.EDTs;
 using AppFramework.Linq;
 using FirstAppFrameworkApplicationEntities.EDTs;
+using FirstAppFrameworkApplicationEntities.EntityEnums;
 using FirstAppFrameworkApplicationEntities.Forms;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
 {
     partial class OrderMiscCharges : EntityBase
     {
+        public decimal TempValue { get; set; }
         protected override string Caption
         {
             get { return "Order Deductions"; }
@@ -46,27 +48,42 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
         protected override void setupEntityInfo()
         {
             FieldInfoList["OrderID"] = new FieldInfo(true, false, true, new OrderEDT());
-            FieldInfoList["DeductionID"] = new FieldInfo(true, false, true, new MiscChargeEDT());
+            //FieldInfoList["DeductionID"] = new FieldInfo(true, false, false, new MiscChargeEDT());
             FieldInfoList["Amount"] = new FieldInfo(false, false, true, new AmountEDT());
 
-            TableInfo.KeyInfoList["DeductionID"] = new KeyInfo(KeyType.Key, "DeductionID");
+            //TableInfo.KeyInfoList["DeductionID"] = new KeyInfo(KeyType.Key, "DeductionID");
             TableInfo.KeyInfoList["OrderID"] = new KeyInfo(KeyType.Key, "OrderID");
-            TableInfo.KeyInfoList["PrimaryKey"] = new KeyInfo(KeyType.PrimaryField, "DeductionID", "OrderID");
+            //TableInfo.KeyInfoList["PrimaryKey"] = new KeyInfo(KeyType.PrimaryField, "DeductionID", "OrderID");
         }
 
         protected override long insert(bool forceWrite, bool callSaveMethod)
         {
             var deduction = (from d in new QueryableEntity<MiscCharge>()
-                             where d.DeductionID == this.DeductionID
-                             select d).AppFirst();
+                             where d.Default == true
+                             orderby d.ChargeOrder
+                             select d).ToList();
             var order = (from o in new QueryableEntity<Order>()
                          where o.OrderID == this.OrderID
                          select o).AppFirst();
-            if (deduction.DeductionType == DeductionType.FIXED)
-                this.Amount = deduction.Value ;
-            else if (deduction.DeductionType == DeductionType.PERCENTAGE)
-                this.Amount = (order.Amount * deduction.Value) / 100;
+            MiscCharge tempD = new MiscCharge();
+            foreach (var d in deduction)
+            {
+                if (tempD == null)
+                    tempD = d;
+                if (tempD.ChargeOrder == d.ChargeOrder)
+                    TempValue = order.Amount;
+                else if (tempD.ChargeOrder <= d.ChargeOrder)
+                {
+                    tempD = d;
+                    TempValue = order.Amount + this.Amount;
+                }
 
+                if (d.DeductionType == DeductionType.Fixed)
+                    this.Amount += d.Value;
+                else if (d.DeductionType == DeductionType.Percentage)
+                    this.Amount += (TempValue * d.Value) / 100;
+
+            }
             return base.insert(forceWrite, callSaveMethod);
         }
     }
