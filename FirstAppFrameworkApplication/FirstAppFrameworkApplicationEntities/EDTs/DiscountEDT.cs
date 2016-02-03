@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace FirstAppFrameworkApplicationEntities.EDTs
 {
-    class MiscChargeTypeEDT : ExtendedDataType
+    class DiscountEDT : ExtendedDataType
     {
         public override Type EnumType
         {
-            get { return typeof(DeductionType); }
+            get { return null; }
         }
 
         public override FormDataType FormDataType
         {
-            get { return AppFramework.AppClasses.FormDataType.Enum; }
+            get { return AppFramework.AppClasses.FormDataType.String; }
         }
 
         public override string Label
         {
-            get { return "Deduction Type"; }
+            get { return "Discount"; }
         }
 
         public override int Length
@@ -32,12 +32,7 @@ namespace FirstAppFrameworkApplicationEntities.EDTs
 
         public override LookupInfo LookupInfo
         {
-            get { return new LookupInfo(typeof(MiscCharge), "DeductionType", ""); }
+            get { return new LookupInfo(typeof(Discount), "DiscountID", ""); }
         }
-    }
-    public enum DeductionType
-    {
-        FIXED,
-        PERCENTAGE
     }
 }

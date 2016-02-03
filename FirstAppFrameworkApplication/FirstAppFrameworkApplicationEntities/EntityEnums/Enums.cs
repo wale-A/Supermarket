@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace FirstAppFrameworkApplicationEntities.EntityEnums
 {
-    internal class Enums
+    internal enum Payment
     {
-        internal enum Payment
-        {
-            Cash,
-            Card,
-            Credit
-        };
+        Cash,
+        Card,
+        Credit
+    };
+
+    public enum DeductionType
+    {
+        Fixed,
+        Percentage
+    }
+
+    public enum MiscChargeOrder
+    {
+        One,
+        Two,
+        Three,
+        Four
     }
 }

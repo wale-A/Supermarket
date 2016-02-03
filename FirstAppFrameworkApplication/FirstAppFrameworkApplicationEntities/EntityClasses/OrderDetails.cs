@@ -68,6 +68,11 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
                          select o).ToList();
             order[0].Amount -= this.Amount;
             order[0].update();
+
+            var miscCharge = new OrderMiscCharges();
+            miscCharge.OrderID = this.OrderID;
+            miscCharge.insert();
+
             return base.insert(forceWrite, callSaveMethod);
         }
     }
