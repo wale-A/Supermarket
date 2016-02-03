@@ -134,6 +134,7 @@
     <Compile Include="EntityClasses\ItemCategory_Properties.cs" />
     <Compile Include="EntityClasses\Items.cs" />
     <Compile Include="EntityClasses\Payment.cs" />
+    <Compile Include="EntityClasses\Total.cs" />
     <Compile Include="EntityEnums\Enums.cs" />
     <Compile Include="Forms\CompanyDetails.cs">
       <SubType>Form</SubType>
@@ -183,6 +184,12 @@
     <Compile Include="Forms\Payment.Designer.cs">
       <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Total.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Total.Designer.cs">
+      <DependentUpon>Total.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program_Main.cs" />
     <Compile Include="ReportClasses\InvoiceReport.cs" />
     <Compile Include="Setup.cs" />
@@ -219,6 +226,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Discount.cs</DependentUpon>
     </Compile>
+    <Compile Include="EntityClasses\Total_Properties.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Total.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
@@ -245,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Total.resx">
+      <DependentUpon>Total.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -280,7 +294,9 @@
     <None Include="bin\Debug\EntityBaseUpdaterUtility.exe.config" />
     <None Include="bin\Debug\serverconfig.cfg" />
     <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.EntityClasses.InvoiceDetails.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.EntityClasses.Total.datasource" />
     <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.InvoiceReport+InvoiceReportDataLine.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.OrderReport+ExtraCharges.datasource" />
     <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.OrderReport+OrderDetailsReportDataLine.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

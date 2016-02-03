@@ -3,6 +3,7 @@ using AppFramework.AppClasses.EDTs;
 using AppFramework.Linq;
 using FirstAppFrameworkApplicationEntities.EDTs;
 using FirstAppFrameworkApplicationEntities.EntityClasses;
+using FirstAppFrameworkApplicationEntities.EntityEnums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,26 +55,106 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
             TableInfo.KeyInfoList["OrderID"] = new KeyInfo(KeyType.Key, "OrderID");
             TableInfo.KeyInfoList["ItemCategoryID"] = new KeyInfo(KeyType.Key, "ItemCategoryID");
             TableInfo.KeyInfoList["ItemID_FK"] = new KeyInfo(KeyType.Key, "ItemID");
-            TableInfo.KeyInfoList["CompositeKey"] = new KeyInfo(KeyType.Unique, "OrderID", "ItemCategoryID", "ItemID"); 
+            TableInfo.KeyInfoList["CompositeKey"] = new KeyInfo(KeyType.Unique, "OrderID", "ItemCategoryID", "ItemID");
         }
 
         protected override long insert(bool forceWrite, bool callSaveMethod)
         {
-            var unitPrice = (from item in new QueryableEntity<Items>()
-                             where item.ItemID == this.ItemID
-                             select item.Price).ToList();
-            this.Amount = unitPrice[0] * this.Quantity;
-            var order = (from o in new QueryableEntity<Order>()
-                         where o.OrderID == this.OrderID
-                         select o).ToList();
-            order[0].Amount -= this.Amount;
-            order[0].update();
+            
+            var item = (from i in new QueryableEntity<Items>()
+                             where i.ItemID == this.ItemID
+                             select i).AppFirst();
+            if (this.Quantity <= item.ItemQuantity)
+            {
+                item.ItemQuantity -= this.Quantity;
+                this.Amount = item.Price * this.Quantity;
+                var order = (from o in new QueryableEntity<Order>()
+                             where o.OrderID == this.OrderID
+                             select o).AppFirst();
+                order.Amount -= this.Amount;
+                order.update();
+                item.update();
 
-            var miscCharge = new OrderMiscCharges();
-            miscCharge.OrderID = this.OrderID;
-            miscCharge.insert();
+                var category = (from itemCategory in new QueryableEntity<ItemCategory>() where itemCategory.ItemCategoryID == this.ItemCategoryID select itemCategory).AppFirst();
+                var itemQuantity = (from i in new QueryableEntity<Items>() where i.ItemID == this.ItemID select i.ItemQuantity).ToList();
+                category.ItemQuantity -= this.Quantity;
+                category.update();
 
-            return base.insert(forceWrite, callSaveMethod);
+                computeMiscChargesForItem();
+                return base.insert(forceWrite, callSaveMethod);
+            }
+            else
+                throw new Exception("quantity in order exceed maximum item quantity:  " + item.ItemQuantity);
         }
+
+        private void computeMiscChargesForItem()
+        {
+            var deduction = (from d in new QueryableEntity<MiscCharge>()
+                             where d.Default == true
+                             orderby d.ChargeOrder
+                             select d).ToList();
+            //var item = (from i in new QueryableEntity<Items>()
+            //            where i.ItemID == this.ItemID
+            //            select i).AppFirst();
+            MiscCharge tempD = new MiscCharge();
+            foreach (var d in deduction)
+            {
+                if (tempD == null)
+                    tempD = d;
+                if (tempD.ChargeOrder == d.ChargeOrder)
+                    TempValue = Amount;
+                else if (tempD.ChargeOrder <= d.ChargeOrder)
+                {
+                    tempD = d;
+                    TempValue = Amount + ExtraCharge;
+                }
+
+                if (d.DeductionType == DeductionType.Fixed)
+                    ExtraCharge = d.Value;
+                else if (d.DeductionType == DeductionType.Percentage)
+                    ExtraCharge = (TempValue * d.Value) / 100;
+
+                OrderMiscCharges omc = new OrderMiscCharges
+                {
+                    OrderID = this.OrderID,
+                    Amount = ExtraCharge,
+                    MiscChargeID = d.DeductionID,
+                    ItemID = this.ItemID
+                };
+                omc.insert();
+            }
+        }
+
+        public decimal TempValue { get; set; }
+        public decimal ExtraCharge { get; set; }
+
+        public override long delete(bool forceWrite)
+        {
+            var item = (from i in new QueryableEntity<Items>()
+                        where i.ItemID == this.ItemID
+                        select i).AppFirst();
+            item.ItemQuantity += this.Quantity;
+            item.update();
+
+            var category = (from itemCategory in new QueryableEntity<ItemCategory>() where itemCategory.ItemCategoryID == this.ItemCategoryID select itemCategory).AppFirst();
+            var itemQuantity = (from i in new QueryableEntity<Items>() where i.ItemID == this.ItemID select i.ItemQuantity).ToList();
+            category.ItemQuantity += this.Quantity;
+            category.update();
+
+            return base.delete(forceWrite);
+        }
+
+        private void removeMiscChargesForItem()
+        {
+            var orderMiscCharge = (from omc in new QueryableEntity<OrderMiscCharges>()
+                       where omc.ItemID == this.ItemID
+                       select omc).ToList();
+            
+            foreach (var omc in orderMiscCharge)
+            {
+                omc.delete();
+            }
+        }
+         
     }
 }

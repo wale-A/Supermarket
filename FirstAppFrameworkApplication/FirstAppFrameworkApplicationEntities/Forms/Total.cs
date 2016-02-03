@@ -11,16 +11,11 @@ using System.Windows.Forms;
 
 namespace FirstAppFrameworkApplicationEntities.Forms
 {
-    public partial class Orders : FormBase
+    public partial class Total : FormBase
     {
-        public Orders()
+        public Total()
         {
             InitializeComponent();
-        }
-
-        private void formDataGridView2_EntitySaved(AppFramework.Controls.FormDataGridView sender, int row, EventArgs e)
-        {
-            formDataGridView1.reloadCurrentEntity();
         }
     }
 }

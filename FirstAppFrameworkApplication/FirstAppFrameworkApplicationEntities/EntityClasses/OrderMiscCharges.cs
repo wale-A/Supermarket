@@ -48,43 +48,66 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
         protected override void setupEntityInfo()
         {
             FieldInfoList["OrderID"] = new FieldInfo(true, false, true, new OrderEDT());
-            //FieldInfoList["DeductionID"] = new FieldInfo(true, false, false, new MiscChargeEDT());
             FieldInfoList["Amount"] = new FieldInfo(false, false, true, new AmountEDT());
-
-            //TableInfo.KeyInfoList["DeductionID"] = new KeyInfo(KeyType.Key, "DeductionID");
+            FieldInfoList["MiscChargeID"] = new FieldInfo(true, false, true, new MiscChargeEDT());
+            FieldInfoList["ItemID"] = new FieldInfo(true, false, true, new ItemEDT());
+            
             TableInfo.KeyInfoList["OrderID"] = new KeyInfo(KeyType.Key, "OrderID");
-            //TableInfo.KeyInfoList["PrimaryKey"] = new KeyInfo(KeyType.PrimaryField, "DeductionID", "OrderID");
+            TableInfo.KeyInfoList["MiscChargeID"] = new KeyInfo(KeyType.Key, "MiscChargeID");
+            TableInfo.KeyInfoList["ItemID"] = new KeyInfo(KeyType.Key, "ItemID");
+            TableInfo.KeyInfoList["PrimaryKey"] = new KeyInfo(KeyType.PrimaryField, "MiscChargeID", "OrderID", "ItemID");
         }
 
         protected override long insert(bool forceWrite, bool callSaveMethod)
         {
-            var deduction = (from d in new QueryableEntity<MiscCharge>()
-                             where d.Default == true
-                             orderby d.ChargeOrder
-                             select d).ToList();
             var order = (from o in new QueryableEntity<Order>()
                          where o.OrderID == this.OrderID
                          select o).AppFirst();
-            MiscCharge tempD = new MiscCharge();
-            foreach (var d in deduction)
+            order.Amount -= this.Amount;
+            order.update();
+
+            var miscCharge = (from m in new QueryableEntity<MiscCharge>()
+                              where m.DeductionID == this.MiscChargeID
+                              select m).AppFirst();
+            var totalObj = (from t in new QueryableEntity<Total>()
+                            where t.OrderID == this.OrderID && t.Description == miscCharge.Description
+                            select t).AppFirst();
+            if (totalObj == null)
             {
-                if (tempD == null)
-                    tempD = d;
-                if (tempD.ChargeOrder == d.ChargeOrder)
-                    TempValue = order.Amount;
-                else if (tempD.ChargeOrder <= d.ChargeOrder)
+                totalObj = new Total
                 {
-                    tempD = d;
-                    TempValue = order.Amount + this.Amount;
-                }
-
-                if (d.DeductionType == DeductionType.Fixed)
-                    this.Amount += d.Value;
-                else if (d.DeductionType == DeductionType.Percentage)
-                    this.Amount += (TempValue * d.Value) / 100;
-
+                    OrderID = this.OrderID,
+                    Description = miscCharge.Description,
+                    Amount = this.Amount
+                };
+                totalObj.insert();
+            }
+            else
+            {
+                totalObj.Amount += this.Amount;
+                totalObj.update();
             }
             return base.insert(forceWrite, callSaveMethod);
+        }
+
+        public override long delete(bool forceWrite)
+        {
+            var order = (from o in new QueryableEntity<Order>()
+                         where o.OrderID == this.OrderID
+                         select o).AppFirst();
+            order.Amount -= this.Amount;
+            order.update();
+
+            var miscCharge = (from m in new QueryableEntity<MiscCharge>()
+                              where m.DeductionID == this.MiscChargeID
+                              select m).AppFirst();
+            var totalObj = (from t in new QueryableEntity<Total>()
+                            where t.OrderID == this.OrderID && t.Description == miscCharge.Description
+                            select t).AppFirst();
+            if (totalObj != null)
+                totalObj.Amount -= this.Amount;
+
+            return base.delete(forceWrite);
         }
     }
 }

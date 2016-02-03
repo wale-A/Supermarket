@@ -32,13 +32,15 @@ namespace FirstAppFrameworkApplicationEntities.ReportClasses
         public override void initDataSources()
         {
             if (Args.EntityBase != null)
+            {
                 OrderInstance = (Order)Args.EntityBase;
-            
+                OrderID = OrderInstance.OrderID;
+            }
             if (OrderInstance == null)
             {
                 try
                 {
-                    OrderInstance = (from i in new QueryableEntity<Order>() where i.OrderID == OrderID select i).ToList().AppFirst();
+                    //OrderInstance = (from i in new QueryableEntity<Order>() where i.OrderID == OrderID select i).ToList().AppFirst();
                     //OrderID = OrderInstance.OrderID;
 
                     var reportData = (from i in new QueryableEntity<Order>()
@@ -64,10 +66,14 @@ namespace FirstAppFrameworkApplicationEntities.ReportClasses
                                             UnitPrice = i.Price,
                                             Amount = od.Amount
                                         }).ToList();
-                    //var OrderItems = (from id in new QueryableEntity<OrderDetails>() where id.OrderID == OrderID select id).ToList();
+
+                  var total = (from t in new QueryableEntity<Total>() 
+                                     where t.OrderID == OrderID 
+                                         select t).ToList();
 
                     LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("Order", reportData));
                     LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("Items", orderDetails));
+                    LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("Misc", total));
                 }
                 catch (Exception ex)
                 {
@@ -111,6 +117,12 @@ namespace FirstAppFrameworkApplicationEntities.ReportClasses
             public string Description { get; set; }
             public int Quantity { get; set; }
             public decimal UnitPrice { get; set; }
+            public decimal Amount { get; set; }
+        }
+
+        public class ExtraCharges
+        {
+            public string Description { get; set; }
             public decimal Amount { get; set; }
         }
     }

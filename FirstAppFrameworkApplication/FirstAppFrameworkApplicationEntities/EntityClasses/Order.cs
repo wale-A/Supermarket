@@ -1,5 +1,6 @@
 ﻿using AppFramework.AppClasses;
 using AppFramework.AppClasses.EDTs;
+using AppFramework.Linq;
 using FirstAppFrameworkApplicationEntities.EDTs;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,18 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
                 this.OrderStatus = EDTs.OrderStatus.SETTLED;
             else if (this.Amount > 0)
                 this.OrderStatus = EDTs.OrderStatus.OVERPAYED;
+
+            updateCustomerAccount();
             return base.update(forceWrite, callSaveMethod);
+        }
+
+        private void updateCustomerAccount()
+        {
+            var customer = (from c in new QueryableEntity<Customers>()
+                        where c.CustomerID == this.CustomerID
+                        select c).AppFirst();
+            customer.Money = this.Amount;
+            customer.update();
         }
                 
     }
