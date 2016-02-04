@@ -185,6 +185,7 @@
     </Compile>
     <Compile Include="Program_Main.cs" />
     <Compile Include="ReportClasses\InvoiceReport.cs" />
+    <Compile Include="ReportClasses\ReceiptReport.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EntityClasses\Customers_Properties.cs">
@@ -246,6 +247,13 @@
     <EmbeddedResource Include="Forms\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Reports\ReceiptReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\InvoiceReportContainer.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reports\ReceiptReportContainer.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\AppFramework.dll" />
@@ -280,8 +288,14 @@
     <None Include="bin\Debug\EntityBaseUpdaterUtility.exe.config" />
     <None Include="bin\Debug\serverconfig.cfg" />
     <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.EntityClasses.InvoiceDetails.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.EntityClasses.Order.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.EntityClasses.Payment.datasource" />
     <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.InvoiceReport+InvoiceReportDataLine.datasource" />
     <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.OrderReport+OrderDetailsReportDataLine.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.ReceiptReport+Customer.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.ReceiptReport+CustomerName.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.ReceiptReport+PaymentData.datasource" />
+    <None Include="Properties\DataSources\FirstAppFrameworkApplicationEntities.ReportClasses.ReceiptReport.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
