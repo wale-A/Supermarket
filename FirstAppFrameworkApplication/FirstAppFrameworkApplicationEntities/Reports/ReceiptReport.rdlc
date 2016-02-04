@@ -9,18 +9,30 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!date.Value, "paymentData")</Value>
                 <Style>
                   <Format>d MMM yyyy</Format>
                 </Style>
+=======
+                <Label>Date</Label>
+                <Value />
+                <Style />
+>>>>>>> refs/remotes/origin/master
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
+<<<<<<< HEAD
         <Height>0.25in</Height>
         <Width>0.79041in</Width>
+=======
+        <Left>0.10292in</Left>
+        <Height>0.25in</Height>
+        <Width>0.72917in</Width>
+>>>>>>> refs/remotes/origin/master
         <Style>
           <Border>
             <Style>None</Style>
@@ -32,11 +44,16 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox2">
+<<<<<<< HEAD
+=======
+        <CanGrow>true</CanGrow>
+>>>>>>> refs/remotes/origin/master
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!paymentId.Value, "paymentData")</Value>
                 <Style />
               </TextRun>
@@ -51,6 +68,20 @@
         <Left>1.22444in</Left>
         <Height>0.25in</Height>
         <Width>1.00347in</Width>
+=======
+                <Label>Payment ID</Label>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Left>0.97792in</Left>
+        <Height>0.25in</Height>
+        <Width>1.33333in</Width>
+>>>>>>> refs/remotes/origin/master
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -63,12 +94,20 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox3">
+<<<<<<< HEAD
+=======
+        <CanGrow>true</CanGrow>
+>>>>>>> refs/remotes/origin/master
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>Received from</Value>
+=======
+                <Value>Received from:</Value>
+>>>>>>> refs/remotes/origin/master
                 <Style />
               </TextRun>
             </TextRuns>
@@ -76,9 +115,16 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
+<<<<<<< HEAD
         <Top>0.32861in</Top>
         <Height>0.23139in</Height>
         <Width>1.21056in</Width>
+=======
+        <Top>0.31125in</Top>
+        <Left>0.10292in</Left>
+        <Height>0.25in</Height>
+        <Width>0.94792in</Width>
+>>>>>>> refs/remotes/origin/master
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -91,11 +137,16 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox4">
+<<<<<<< HEAD
+=======
+        <CanGrow>true</CanGrow>
+>>>>>>> refs/remotes/origin/master
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!name.Value, "customer")</Value>
                 <Style />
               </TextRun>
@@ -110,19 +161,46 @@
         <Left>1.22444in</Left>
         <Height>0.23139in</Height>
         <Width>1.00347in</Width>
+=======
+                <Label>Customer ID</Label>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>0.31125in</Top>
+        <Left>1.06472in</Left>
+        <Height>0.25in</Height>
+        <Width>1.24653in</Width>
+>>>>>>> refs/remotes/origin/master
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+<<<<<<< HEAD
         </Style>
       </Textbox>
       <Textbox Name="Textbox5">
+=======
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+>>>>>>> refs/remotes/origin/master
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!id.Value, "customer")</Value>
                 <Style />
               </TextRun>
@@ -137,11 +215,26 @@
         <Left>1.22444in</Left>
         <Height>0.20833in</Height>
         <Width>1.00347in</Width>
+=======
+                <Value>Name: </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox5</rd:DefaultName>
+        <Top>0.56125in</Top>
+        <Left>0.10292in</Left>
+        <Height>0.20833in</Height>
+        <Width>0.48958in</Width>
+>>>>>>> refs/remotes/origin/master
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+<<<<<<< HEAD
         </Style>
       </Textbox>
       <Tablix Name="Tablix1">
@@ -303,11 +396,40 @@
         <Top>1.00049in</Top>
         <Height>0.375in</Height>
         <Width>2.23486in</Width>
+=======
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Label>Customer Name</Label>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>0.56125in</Top>
+        <Left>0.5925in</Left>
+        <Height>0.20833in</Height>
+        <Width>1.71875in</Width>
+>>>>>>> refs/remotes/origin/master
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+<<<<<<< HEAD
         </Style>
       </Tablix>
       <Tablix Name="Tablix2">
@@ -406,11 +528,39 @@
         <Top>0.77306in</Top>
         <Height>0.22743in</Height>
         <Width>2.23486in</Width>
+=======
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>The Sum of</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Top>0.83903in</Top>
+        <Left>0.10292in</Left>
+        <Height>0.21875in</Height>
+        <Width>0.76389in</Width>
+>>>>>>> refs/remotes/origin/master
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+<<<<<<< HEAD
         </Style>
       </Tablix>
     </ReportItems>
@@ -418,6 +568,142 @@
     <Style />
   </Body>
   <Width>2.25312in</Width>
+=======
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Label>Amount</Label>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>0.83903in</Top>
+        <Left>0.86681in</Left>
+        <Height>0.21875in</Height>
+        <Width>1.44444in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Being payment for</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>1.17583in</Top>
+        <Left>0.10292in</Left>
+        <Height>0.25in</Height>
+        <Width>1.15625in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Label>Order ID</Label>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>1.17583in</Top>
+        <Left>1.25917in</Left>
+        <Height>0.25in</Height>
+        <Width>1.05208in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Label>Short Description</Label>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>1.42583in</Top>
+        <Left>0.10292in</Left>
+        <Height>0.26167in</Height>
+        <Width>2.20833in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>1.72917in</Height>
+    <Style />
+  </Body>
+  <Width>2.3425in</Width>
+>>>>>>> refs/remotes/origin/master
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -426,6 +712,7 @@
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
+<<<<<<< HEAD
   <DataSources>
     <DataSource Name="FirstAppFrameworkApplicationEntitiesReportClasses">
       <ConnectionProperties>
@@ -507,4 +794,8 @@
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>852013d6-0268-4a8b-bd1a-2ed678fd19c2</rd:ReportID>
+=======
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>3e046cb8-ef4a-459c-ac81-311a8a39c2e1</rd:ReportID>
+>>>>>>> refs/remotes/origin/master
 </Report>
