@@ -69,7 +69,24 @@ namespace FirstAppFrameworkApplicationEntities.EntityClasses
 
         protected override long update(bool forceWrite, bool callSaveMethod)
         {
+            var quantity = (from item in new QueryableEntity<Items>() where item.ItemID == this.ItemID select item.ItemQuantity).ToList();
+
+            var category = (from itemCategory in new QueryableEntity<ItemCategory>() where itemCategory.ItemCategoryID == this.ItemCategoryID select itemCategory).AppFirst();
+            category.ItemQuantity += (this.ItemQuantity - quantity[0]);
+            category.update();
+
             return base.update(forceWrite, callSaveMethod);
+        }
+
+        public override long delete(bool forceWrite)
+        {
+            var quantity = (from item in new QueryableEntity<Items>() where item.ItemID == this.ItemID select item.ItemQuantity).ToList();
+
+            var category = (from itemCategory in new QueryableEntity<ItemCategory>() where itemCategory.ItemCategoryID == this.ItemCategoryID select itemCategory).AppFirst();
+            category.ItemQuantity -= quantity[0];
+            category.update();
+
+            return base.delete(forceWrite);
         }
     }
 }

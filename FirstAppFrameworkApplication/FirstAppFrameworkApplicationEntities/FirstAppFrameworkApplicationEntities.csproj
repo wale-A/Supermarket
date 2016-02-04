@@ -260,6 +260,9 @@
     <EmbeddedResource Include="Forms\Total.resx">
       <DependentUpon>Total.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Reports\InvoiceReportContainer.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\AppFramework.dll" />

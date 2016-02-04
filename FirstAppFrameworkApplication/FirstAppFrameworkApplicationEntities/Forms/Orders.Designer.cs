@@ -34,8 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.formDataGridView1 = new AppFramework.Controls.FormDataGridView();
             this.formDataGridView2 = new AppFramework.Controls.FormDataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.runnableFormButton1 = new AppFramework.Controls.RunnableFormButton();
             ((System.ComponentModel.ISupportInitialize)(this.formDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formDataGridView2)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // formDataGridView1
@@ -52,6 +57,7 @@
             this.formDataGridView1.AutoFieldsGroup = "grid";
             this.formDataGridView1.AutoLoad = true;
             this.formDataGridView1.AutoSelectGridOnTabChange = true;
+            this.formDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.formDataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.formDataGridView1.Caption = "";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
@@ -72,11 +78,11 @@
             this.formDataGridView1.EntityBaseNamespace = "";
             this.formDataGridView1.EntityBaseTypeName = "Order";
             this.formDataGridView1.HelpTopic = null;
-            this.formDataGridView1.Location = new System.Drawing.Point(0, 27);
+            this.formDataGridView1.Location = new System.Drawing.Point(0, 0);
             this.formDataGridView1.Name = "formDataGridView1";
             this.formDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.formDataGridView1.ShowGridFilter = false;
-            this.formDataGridView1.Size = new System.Drawing.Size(525, 123);
+            this.formDataGridView1.Size = new System.Drawing.Size(458, 123);
             this.formDataGridView1.SortColumn = "ID";
             this.formDataGridView1.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.formDataGridView1.StartPosition = AppFramework.Controls.ScrollPosition.First;
@@ -96,6 +102,7 @@
             this.formDataGridView2.AutoFieldsGroup = "nonsystem";
             this.formDataGridView2.AutoLoad = true;
             this.formDataGridView2.AutoSelectGridOnTabChange = true;
+            this.formDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.formDataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.formDataGridView2.Caption = "";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
@@ -116,30 +123,79 @@
             this.formDataGridView2.EntityBaseNamespace = "";
             this.formDataGridView2.EntityBaseTypeName = "OrderDetails";
             this.formDataGridView2.HelpTopic = null;
-            this.formDataGridView2.Location = new System.Drawing.Point(0, 126);
+            this.formDataGridView2.Location = new System.Drawing.Point(0, 116);
             this.formDataGridView2.Name = "formDataGridView2";
             this.formDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.formDataGridView2.ShowGridFilter = false;
-            this.formDataGridView2.Size = new System.Drawing.Size(525, 150);
+            this.formDataGridView2.Size = new System.Drawing.Size(458, 133);
             this.formDataGridView2.SortColumn = "ID";
             this.formDataGridView2.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.formDataGridView2.StartPosition = AppFramework.Controls.ScrollPosition.First;
             this.formDataGridView2.TabIndex = 2;
             this.formDataGridView2.EntitySaved += new AppFramework.Controls.FormDataGridView.EntitySavedEventHandler(this.formDataGridView2_EntitySaved);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.runnableFormButton1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(458, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(115, 249);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.formDataGridView1);
+            this.panel2.Controls.Add(this.formDataGridView2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 27);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(458, 249);
+            this.panel2.TabIndex = 4;
+            // 
+            // runnableFormButton1
+            // 
+            this.runnableFormButton1.AllowAssociatedGridMultiSelect = true;
+            this.runnableFormButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.runnableFormButton1.ArgsValueString = null;
+            this.runnableFormButton1.AssociatedDataGrid = this.formDataGridView1;
+            this.runnableFormButton1.AutoSize = true;
+            this.runnableFormButton1.DiscardUserSettings = false;
+            this.runnableFormButton1.EnableEvenIfAssociatedGridIsEmpty = false;
+            this.runnableFormButton1.HelpTopic = null;
+            this.runnableFormButton1.Location = new System.Drawing.Point(4, 4);
+            this.runnableFormButton1.Name = "runnableFormButton1";
+            this.runnableFormButton1.ReloadGridAfter = false;
+            this.runnableFormButton1.ReloadSelectedEntityAfter = false;
+            this.runnableFormButton1.RequiredLicense = "";
+            this.runnableFormButton1.RequiredPermissionLevel = AppFramework.AppClasses.AccessLevel.None;
+            this.runnableFormButton1.RunnableInteractive = false;
+            this.runnableFormButton1.RunnableTypeName = "OrderReport";
+            this.runnableFormButton1.RunnableTypeNamespace = "FirstAppFrameworkApplicationEntities.ReportClasses";
+            this.runnableFormButton1.SaveCurrentEntity = true;
+            this.runnableFormButton1.Size = new System.Drawing.Size(107, 23);
+            this.runnableFormButton1.TabIndex = 0;
+            this.runnableFormButton1.Text = "Generate Invoice";
+            this.runnableFormButton1.UseVisualStyleBackColor = true;
+            // 
             // Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 300);
-            this.Controls.Add(this.formDataGridView2);
-            this.Controls.Add(this.formDataGridView1);
+            this.ClientSize = new System.Drawing.Size(573, 300);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Orders";
             this.Text = "Orders";
-            this.Controls.SetChildIndex(this.formDataGridView1, 0);
-            this.Controls.SetChildIndex(this.formDataGridView2, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.panel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.formDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formDataGridView2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +205,8 @@
 
         private AppFramework.Controls.FormDataGridView formDataGridView1;
         private AppFramework.Controls.FormDataGridView formDataGridView2;
+        private System.Windows.Forms.Panel panel1;
+        private AppFramework.Controls.RunnableFormButton runnableFormButton1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
